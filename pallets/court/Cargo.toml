@@ -1,0 +1,43 @@
+[dependencies]
+arrayvec = { default-features = false, version = "0.7" }
+frame-benchmarking = { bbranch = "polkadot-v0.9.42", default-features = false, optional = true, git = "https://github.com/paritytech/substrate" }
+frame-support = { branch = "polkadot-v0.9.42", default-features = false, git = "https://github.com/paritytech/substrate" }
+frame-system = { branch = "polkadot-v0.9.42", default-features = false, git = "https://github.com/paritytech/substrate" }
+parity-scale-codec = { default-features = false, features = ["derive", "max-encoded-len"], version = "3.0.0" }
+rand = { default-features = false, features = ["alloc", "std_rng"], version = "0.8" }
+rand_chacha = { default-features = false, version = "0.3.1" }
+scale-info = { version = "2.1.1", default-features = false, features = ["derive"] }
+sp-arithmetic = { branch = "polkadot-v0.9.42", default-features = false, git = "https://github.com/paritytech/substrate" }
+sp-runtime = { branch = "polkadot-v0.9.42", default-features = false, git = "https://github.com/paritytech/substrate" }
+
+[dev-dependencies]
+pallet-balances = { branch = "polkadot-v0.9.42", git = "https://github.com/paritytech/substrate" }
+pallet-timestamp = { branch = "polkadot-v0.9.42", git = "https://github.com/paritytech/substrate" }
+pallet-treasury = { branch = "polkadot-v0.9.42", git = "https://github.com/paritytech/substrate" }
+sp-io = { branch = "polkadot-v0.9.42", git = "https://github.com/paritytech/substrate" }
+
+test-case = "3.1.0"
+
+[features]
+default = ["std"]
+runtime-benchmarks = [
+    "frame-benchmarking/runtime-benchmarks",
+    "frame-support/runtime-benchmarks",
+    "frame-system/runtime-benchmarks",
+]
+std = [
+    "frame-benchmarking?/std",
+    "frame-support/std",
+    "frame-system/std",
+    "parity-scale-codec/std",
+    "sp-runtime/std",
+]
+try-runtime = [
+    "frame-support/try-runtime",
+]
+
+[package]
+authors = ["Zeitgeist PM <contact@zeitgeist.pm>"]
+edition = "2021"
+name = "zrml-court"
+version = "0.3.8"
